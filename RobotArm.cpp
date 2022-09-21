@@ -1,5 +1,10 @@
 #include <RobotArm.hpp>
 
+int mod(int a, int b) {
+    int ret = a%b;
+    return ret >= 0 ? ret : ret+b;
+}
+
 float * toYawPitchRoll(const float * coords) {
     float x = coords[0], y = coords[1], z = coords[2];
     float angles[3];
@@ -51,11 +56,11 @@ float * deltaAngle(const float * angles1, const float * angles2) {
 
 
 int stepForward(Motor& motor) {
-    return StepperMotorSteps[++motor.position % 4];
+    return StepperMotorSteps[mod(++motor.position, 4)];
 }
 
 int stepBackward(Motor& motor) {
-    return StepperMotorSteps[--motor.position % 4];
+    return StepperMotorSteps[mod(--motor.position, 4)];
 }
 
 

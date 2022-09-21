@@ -2,6 +2,7 @@
 #define ROBOT_ARM_H
 
 #include <math.h>
+#include <stdlib.h>
 
 #define ArmLength 1.0f
 #define GripperEffectiveRadius 0.1f
